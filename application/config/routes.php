@@ -38,8 +38,14 @@
 |
 */
 
-$route['default_controller'] = "welcome";
-$route['404_override'] = '';
+$route['sleep'] = "first/zzz";                  // remap to first::zzz
+$route['lock/em/up'] = "welcome/shucks";        // remap to welcome::shucks
+$route['show/(:num)'] = "first/gimme/$1";       // remap to first::gimme/3
+$route['dunno'] = "guess";                      // remap to dunno
+$route['\w{4}/bingo'] = "bingo";                // remap to bingo controller using regex ([4 letters]/bingo)
+$route['comp(:num)/(:any)'] = "bingo/wisdom";   // remap to bingo::wisdom, using regex (comp + digits / *)
+$route['default_controller'] = "welcome";       // default
+$route['404_override'] = '';                    // 404?
 
 
 /* End of file routes.php */

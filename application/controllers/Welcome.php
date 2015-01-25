@@ -14,10 +14,6 @@ class Welcome extends Application {
         parent::__construct();
     }
 
-    //-------------------------------------------------------------
-    //  The normal pages
-    //-------------------------------------------------------------
-
     function index() {
         $this->data['pagebody'] = 'homepage';    // this is the view we want shown
         // build the list of authors, to pass on to our view
@@ -28,6 +24,16 @@ class Welcome extends Application {
         }
         $this->data['authors'] = $authors;
 
+        $this->render();
+    }
+
+    function shucks($id = 2) {
+        // build data
+        $source = $this->quotes->get($id);
+        $this->data = array_merge($this->data, $source);
+
+        // render page
+        $this->data['pagebody'] = 'justone';    // this is the view we want shown
         $this->render();
     }
 
